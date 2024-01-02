@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Booleans</title>
+</head>
+
+<body>
+    <script>
+        let computerChoice = 0;              
+
+        const rockValue=1, paperValue=2, scissorValue=3;
+
+        function getComputerChoice() {
+            return Math.floor(Math.random() * (3) + 1);
+        }
+
+        function updateGame(playerChoice, playerChoiceValue) {            
+            computerChoice = getComputerChoice();
+            let matchResult="You chose "+ playerChoice;
+            
+            if(playerChoiceValue===computerChoice){
+                alert("You chose "+playerChoice+" and Computer chose "+playerChoice+"\nIt's a -Draw-");
+            }
+
+            else{
+            
+                switch(computerChoice){
+                    case 1:                    
+                    matchResult+=" and Computer chose rock";
+                        break;
+                    case 2:
+                    matchResult+=" and Computer chose paper";
+                        break;
+                    case 3:
+                    matchResult+=" and Computer chose scissor";
+                        break;                    
+                }
+
+                if(playerChoice==="rock" && computerChoice===scissorValue){
+                    matchResult+="\n ***YOU WON***";
+                }
+                else if(playerChoice=== "paper" &&computerChoice===rockValue){
+                    matchResult+="\n ***YOU WON***";
+                }
+                else if(playerChoice=== "scissor" && computerChoice===paperValue){
+                    matchResult+="\n ***YOU WON***";
+                }
+                else
+                    matchResult+="\n ---YOU LOST---";
+
+                alert(matchResult);
+            }
+        }
+    </script>
+
+    <button onclick="updateGame('rock',rockValue);">
+        Rock
+    </button>
+    <button onclick="updateGame('paper',paperValue);">
+        Paper
+    </button>
+    <button onclick="updateGame('scissor',scissorValue);">
+        Scissor
+    </button>
+</body>
+
+</html>
